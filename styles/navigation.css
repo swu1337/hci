@@ -1,13 +1,76 @@
 aside.menu {
+    display: flex;
     position: fixed;
     z-index: 420;
     font-size: 24px;
     color: white;
     top: 5%;
     right: 3%;
+    background-color: rgb(148, 17, 255);
+}
+
+aside.menu h1 {
+    letter-spacing: 3px;
+    font-size: 16px;
+    padding: 16px;
 }
 
 span.fas {
-    padding: 13px;
+    padding: 13px 17px;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    height: 0;
+    z-index: 419;
     background-color: rgb(148, 17, 255);
+    transition: 0.4s ease;
+    overflow: hidden;
+}
+
+ul {
+    height: 100%;
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+    list-style-type: none;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+ul .main {
+    margin-top: 35px;
+}
+
+ul .main .nav-link {
+    font-size: 3.1em;
+}
+
+ul .sub .nav-link {
+    padding-left: 40px;
+    font-size: 2.1em;
+}
+
+.nav-link {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    text-decoration: line-through;
+}
+
+nav.open {
+    height: 100vh;
+}
+
+aside.menu.open {
+    background-color: black;
+}
+
+aside.menu.open span {
+    padding: 13px 17px;
 }

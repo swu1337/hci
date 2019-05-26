@@ -42,6 +42,22 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center; 
 }
 
+.logo-name {
+    z-index: 10;
+    position: absolute;
+    top: 5%;
+    left: 3%;
+    color: white;
+    background-color: rgb(148, 17, 255);
+}
+
+
+.logo-name h1 {
+    letter-spacing: 3px;
+    font-size: 1em;
+    padding: 13px;
+}
+
 .logo-holder {
     flex: 1;
     display: flex;
