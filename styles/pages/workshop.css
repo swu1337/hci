@@ -1,0 +1,15 @@
+.intro, .opinion {
+    color: rgb(0, 230, 118);
+}
+
+.logo-bar {
+    fill: rgb(0, 230, 118);
+}
+
+aside.menu {
+    background-color: rgb(26, 240, 135);
+}
+
+nav {
+    background-color: rgb(0, 200, 83);
+}
