@@ -17,6 +17,10 @@ header {
     height: 100vh;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+}
+
 .landing {
     position: absolute;
     width: 100%;
@@ -49,23 +53,22 @@ header {
     fill: rgb(132, 0, 255);
 }
 
-.intro {
+.intro, .opinion{
     display: flex;
     color: rgb(140, 0, 255);
     height: 100vh;
 }
 
 .intro h1 {
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-size: 4.5em;
-    padding: 20px 70px 0 70px;
+    font-size: 2.5em;
+    padding: 0 70px;
+    letter-spacing: 5px;
 }
 
 .intro h2 {
-    text-transform: uppercase;
-    font-size: 2.5em;
-    padding: 0 70px;
+    letter-spacing: 3px;
+    font-size: 4.5em;
+    padding: 20px 70px 0 70px;
 }
 
 .personal-intro {
@@ -73,4 +76,47 @@ header {
     color: black;
     font-size: 18px;
     line-height: 1.6;
+}
+
+.opinion .title {
+    text-transform: uppercase;
+    font-size: 2.2em;
+    letter-spacing: 3px;
+}
+
+.opinion .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.opinion .answer {
+    padding: 22px 0;
+    line-height: 1.6;
+    color: black;
+}
+
+.opinion .image {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.opinion .image, .opinion .text {
+    width: 50%;
+}
+
+.opinion .image-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.expectations, .learn {
+    padding: 0 70px;
+}
+
+.learn {
+    padding-top: 40px;
 }
