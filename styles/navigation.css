@@ -1,0 +1,13 @@
+aside.menu {
+    position: fixed;
+    z-index: 420;
+    font-size: 24px;
+    color: white;
+    top: 5%;
+    right: 3%;
+}
+
+span.fas {
+    padding: 13px;
+    background-color: rgb(148, 17, 255);
+}
