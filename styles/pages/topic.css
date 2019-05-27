@@ -31,7 +31,7 @@ nav {
     height: 100%;
 }
 
-.logo-holder .logo {
+.logo-holder .logo, .logo-holder .solo-video {
     width: 82%;
     height: 82%;
 }
@@ -42,7 +42,29 @@ nav {
     object-fit: cover;
 }
 
-.personal-intro {
+.personal-intro.topic {
+    padding: 10px 50px 0;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.personal-intro.topic.solo-paragraph {
     font-size: 16px;
-    line-height: 1.4;
+}
+
+.personal-intro.topic:nth-of-type(1){
+    padding-bottom: 27px;
+}
+
+.object-left {
+    object-position: left;
+}
+
+h1.multiple-heading {
+    padding: 0 50px;
+    font-size: 1.7em;
+}
+
+h1.info-heading {
+    padding: 0 50px;
 }
