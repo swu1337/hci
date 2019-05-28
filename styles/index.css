@@ -35,6 +35,11 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
 }
 
+.landing .logo-holder .logo {
+    width: unset;
+    height: unset;
+}
+
 .name {
     display: flex;
     flex: 1;
@@ -134,4 +139,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .learn {
     padding-top: 40px;
+}
+
+section.f-direction-row {
+    flex-direction: row;
 }
