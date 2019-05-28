@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/navigation.css">
-    <link rel="stylesheet" href="../styles/pages/workshop.css">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
     <script src="../scripts/navigation.js"></script>
+    <link rel="stylesheet" href="../styles/lay-out-info.css">
     <title>HCI - Workshop</title>
 </head>
 <body>
@@ -62,7 +63,286 @@
             </nav>
             <aside class="menu"><h1>HCI by Steven Wu</h1><span class="fas fa-bars"></span></aside>
         </header>
-        <section></section>
+        <section id="arduino" class="intro">
+            <section class="name">
+                <section>
+                    <h2>Arduino</h2>
+                    <h1>Assignment</h1>
+                    <p class="personal-intro">
+                        Arduino is small device that is built for developers to learn the basic of combining circuitry and programming. 
+                        We are running sketches (code) on the Arduino application from our laptops to talk to the Arduino device. 
+                        There are different input and output devices to play with such as LED, buttons, servometer, speakers etc. 
+                        Our assignment is to explain what is happening and show the outcome with the corresponding code. 
+                        For a nerd like me, I never worked with Arduino before but I am excited to learn.
+                        I took a little sneak peak at code and it looks like Javascript so it should be easy to work it.
+                    </p>
+                </section>
+            </section>
+            <section class="logo-holder">
+                <figure class="logo">
+                    <img src="../img/arduino.jpg" alt="arduino picture">
+                </figure>
+            </section>
+        </section>
+        <section class="intro 3c">
+            <section class="logo-holder">
+                <figure class="logo">
+                    <video class="topic-video" autoplay loop controls muted>
+                        <source src="../vid/workshop/arduino/3c.mp4" type="video/mp4">
+                    </video>
+                </figure>
+            </section>
+            <section class="name">
+                <section>
+                    <h1 class="info-heading">3C: Blinking LEDS</h1>
+                    <p class="personal-intro topic solo-paragraph">
+                        The exercise here is to let the red LED blink twice faster than the yellow LED.
+                        <br />
+                        <br />
+                        Below you can find the code that was used to achieve this. Basically we define in setup() the outputs which the 2 LEDS. in the loop() we turn the light on and off and put a delay at half a second delay for one LED and for other LED one second delay. 
+                    </p>
+<section class="topic-code">
+    <pre class="prettyprint">
+        <code class="language-c">
+    void setup() {
+        pinMode(LED_BUILTIN, OUTPUT);
+        pinMode(12, OUTPUT);
+    }
+        
+    void loop() {
+        digitalWrite(LED_BUILTIN, HIGH);
+        digitalWrite(12, HIGH);
+        delay(500);
+        digitalWrite(12, LOW);
+        delay(500);
+        digitalWrite(12, HIGH);
+        delay(1000);   
+        digitalWrite(12, LOW);
+        digitalWrite(LED_BUILTIN, LOW); 
+        delay(500);
+        digitalWrite(LED_BUILTIN, LOW);                  
+    }
+        </code>
+    </pre>
+</section>
+                </section>
+            </section>
+        </section>
+        <section class="intro 4c">
+                <section class="logo-holder">
+                    <figure class="logo">
+                        <video class="topic-video" autoplay loop controls muted>
+                            <source src="../vid/workshop/arduino/4c.mp4" type="video/mp4">
+                        </video>
+                    </figure>
+                </section>
+                <section class="name">
+                    <section>
+                        <h1 class="info-heading">4C: Fading LEDS</h1>
+                        <p class="personal-intro topic">
+                            The exercise here is to let the red LED blink fade in while the yellow LED fades out.
+                            <br />
+                            <br />
+                            Below you can find the code that was used to achieve this. Basically we define in setup() the outputs which the 2 LEDS. 
+                            In the loop() We used a for loop ironic right? to loop through and increasing the brightness which was defined at 0 which is off and to 255 which is the max brightness for a LED. This creates the fade in effect.
+                            We counter the other LED by subtracting the 255 which is max with the current brightness which is increasing time by time and that will result in decrements thus fading out.
+                        </p>
+    <section class="topic-code">
+        <pre class="prettyprint">
+            <code class="language-c">
+        int redLedPin = 10;
+        int yellowLedPin = 9;
+
+        void setup() {
+            pinMode(redLedPin, OUTPUT);
+            pinMode(yellowLedPin, OUTPUT);
+        }
+
+        void loop() { 
+            for (int brightness=0; brightness <span class="nocode"><</span> 256; brightness++) {
+                analogWrite(redLedPin, brightness);
+                analogWrite(yellowLedPin, 255 -brightness);
+                delay(10);
+            }
+        }  
+            </code>
+        </pre>
+    </section>
+                    </section>
+                </section>
+        </section>
+        <section class="intro 6c">
+                <section class="logo-holder">
+                    <figure class="logo">
+                        <video class="topic-video" autoplay loop controls muted>
+                            <source src="../vid/workshop/arduino/6c.mp4" type="video/mp4">
+                        </video>
+                    </figure>
+                </section>
+                <section class="name">
+                    <section>
+                        <h1 class="info-heading">6C: Fading LEDS with potentiometer</h1>
+                        <p class="personal-intro topic">
+                            The exercise here is to control the alternating fade in and fade out LEDs with a potentiometer.
+                            <br />
+                            <br />
+                            Below you can find the code that was used to achieve this. Basically is the same code from exercise 4c but we have a new input, potentiometer.
+                            When you turn the knob we can read the value from it but the value is different from what we need. That's why we used map() to get the right range of values that we can use for the LEDs.
+                        </p>
+    <section class="topic-code">
+        <pre class="prettyprint">
+            <code class="language-c">
+        int sensorPin = A0; // variable for sensor pin
+        
+        void setup() {
+            pinMode(sensorPin, INPUT);
+            pinMode(10, OUTPUT);
+            pinMode(9, OUTPUT);
+        }
+
+        void loop() {
+            int val = analogRead(sensorPin);
+            val = map(val, 0, 1023, 0, 255);
+            analogWrite(10, val);
+            analogWrite(9, 255 - val);
+            delay(200);
+        }                
+            </code>
+        </pre>
+    </section>
+                    </section>
+                </section>
+        </section>
+        <section class="intro 7">
+                <section class="logo-holder">
+                    <figure class="logo">
+                        <video class="topic-video" autoplay loop controls muted>
+                            <source src="../vid/workshop/arduino/7.mp4" type="video/mp4">
+                        </video>
+                    </figure>
+                </section>
+                <section class="name">
+                    <section>
+                        <h1 class="info-heading">7: Controle LED with light</h1>
+                        <p class="personal-intro topic">
+                            The exercise here is to control the brightness of the LEDs with a light dependent resistor. A light dependent resistor let the amount of voltage through on basis of the amount light on that is on the resistor.
+                            <br />
+                            <br />
+                            Below you can find the code that was used to achieve this. 
+                            We made sure to connect the LDR and use the map() function to get the right range values. We used those value to set the brightness of the LEDs.
+                            As you can see when you cover the LDR, the LEDs will dim.
+                        </p>
+    <section class="topic-code">
+        <pre class="prettyprint">
+            <code class="language-c">
+        int sensorPin = A0; //variable for sensor pin
+        
+        void setup() {
+            pinMode(sensorPin, INPUT);
+            pinMode(10, OUTPUT);
+            pinMode(9, OUTPUT);
+        }
+        
+        void loop() {
+            float val = analogRead(sensorPin);
+            val = map(val, 0, 1023, 0, 255);
+            analogWrite(10, val);
+            analogWrite(9, val); 
+            delay(200);
+        }                          
+            </code>
+        </pre>
+    </section>
+                    </section>
+                </section>
+        </section>
+        <section class="intro 8">
+                <section class="logo-holder">
+                    <figure class="logo">
+                        <video class="topic-video object-left" autoplay loop controls muted>
+                            <source src="../vid/workshop/arduino/8.mp4" type="video/mp4">
+                        </video>
+                    </figure>
+                </section>
+                <section class="name">
+                    <section>
+                        <h1 class="info-heading">8: Voltage divider</h1>
+                        <p class="personal-intro topic">
+                            The exercise here is about to get real, you might want to sit down for this. In this excercise we will explain the voltage divider formula.
+                            <br />
+                            <br />
+                            The voltage divider formula is: Vo = Vi * R2 / R1 + R2. Vo stands for voltage output what was the real voltage that is going into a LED, Vi stands for voltage input which is coming from the arduino board which is 5V and R stand for resistance of resistor. R can be static (220ohm resistor) but also dynamic (a LDR). We are using 2 LDR's in this exercise.
+                            If both LDR’s have the same light source than the voltage output will always be the half since Vo = Vi * R2 / R1 + R2 and R1 = R2 and vice versa. It will be then R/2R which is same as 1/2.
+                            <br />
+                            <br /> 
+                            If R2 is in the dark and R1 in light than the Vo is going to be close the Vi. R2 has a higher ohm value and R1 little to none then you’re almost dividing R2 with R2.
+                            Vo = Vi * 5000000 / (5000000 + low value from light).
+                            <br />
+                            <br /> 
+                            If R1 is in the dark and R2 in light than the Vo will be small. R2 has a lower value and R1 higher value which you are dividing a small value with a large number resulting a in number almost to zero.
+                            Vo = Vi * low value from light / (5000000 + low value).
+                            <br />
+                            <br />
+                            In the video you can see the value change when I turn on the lights on.
+                            Its hard to get a very low value since there is still light coming from my window so you wont notice a big difference. But there is a value change;
+                        </p>
+                    </section>
+                </section>
+        </section>
+        <section class="intro 9">
+                <section class="logo-holder">
+                    <figure class="logo">
+                        <video class="topic-video" autoplay loop controls muted>
+                            <source src="../vid/workshop/arduino/9b.mp4" type="video/mp4">
+                        </video>
+                    </figure>
+                </section>
+                <section class="name">
+                    <section>
+                        <h1 class="info-heading">Processing + Arduino</h1>
+                        <p class="personal-intro topic">
+                            The exercise here is to link up applications with eachother. Processing is a application that allows you to draw shapes just like on a canvas.
+                            <br />
+                            <br />
+                            Below you can find the code that was used to achieve this. 
+                            We made sure to connect the LDR and use the map() function to get the right range values. We used those value to set the brightness of the LEDs.
+                            As you can see when you cover the LDR, the LEDs will dim.
+                        </p>
+    <section class="topic-code">
+        <pre class="prettyprint">
+            <code class="language-java">
+        //Processing sketch
+        import processing.serial.*;
+        Serial myPort;
+        String sensorReading="";
+
+        void setup() {
+            size(400, 400);
+            myPort = new Serial(this, Serial.list()[1], 9600);
+            myPort.bufferUntil('\n');
+        }
+
+        void draw() {
+            background(255);
+            fill(0);
+            text("Sensor Reading: " + sensorReading, 20, 20);
+            triangle(30 + float(sensorReading),
+                     100,
+                     58 + float(sensorReading),
+                     45, 
+                     86 + float(sensorReading),
+                     100);
+        }
+        
+        void serialEvent (Serial myPort) {
+            sensorReading = myPort.readStringUntil('\n');
+        }
+            </code>
+        </pre>
+    </section>
+                    </section>
+                </section>
+        </section>
     </main>
 </body>
 </html>
