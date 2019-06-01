@@ -11,8 +11,7 @@
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
     <script src="../scripts/navigation.js"></script>
     <link rel="stylesheet" href="../styles/lay-out-info.css">    
-    <link rel="stylesheet" href="../styles/pages/lab-weeks.css">    
-
+    <link rel="stylesheet" href="../styles/pages/lab-weeks.css">
     <title>HCI - Workshop</title>
 </head>
 <body>
@@ -73,7 +72,7 @@
                     <p class="personal-intro">
                         Arduino is small device that is built for developers to learn the basic of combining circuitry and programming. 
                         We are running sketches (code) on the Arduino application from our laptops to talk to the Arduino device. 
-                        There are different input and output devices to play with such as LED, buttons, servometer, speakers etc. 
+                        There are different input and output devices to play with such as LED, buttons, servomotor, speakers etc. 
                         Our assignment is to explain what is happening and show the outcome with the corresponding code. 
                         For a nerd like me, I never worked with Arduino before but I am excited to learn.
                         I took a little sneak peak at code and it looks like Javascript so it should be easy to work it.
@@ -295,7 +294,7 @@
                     </section>
                 </section>
         </section>
-        <section class="intro 9">
+        <section class="intro 9b">
                 <section class="logo-holder">
                     <figure class="logo">
                         <video class="topic-video" autoplay loop controls muted>
@@ -305,7 +304,7 @@
                 </section>
                 <section class="name">
                     <section>
-                        <h1 class="info-heading">Processing + Arduino</h1>
+                        <h1 class="info-heading">9B Processing + Arduino</h1>
                         <p class="personal-intro topic">
                             The exercise here is to link up applications with eachother. Processing is a application that allows you to draw shapes just like on a canvas.
                             <br />
@@ -348,6 +347,205 @@
     </section>
                     </section>
                 </section>
+        </section>
+        <section class="intro 10f">
+            <section class="logo-holder">
+                <figure class="logo">
+                    <video class="topic-video" autoplay loop controls muted>
+                        <source src="../vid/workshop/arduino/10f.mp4" type="video/mp4">
+                    </video>
+                </figure>
+            </section>
+            <section class="name">
+                <section>
+                    <h1 class="info-heading">10F Buttons and LEDs</h1>
+                    <p class="personal-intro topic">
+                        The exercise here is to play with a new input device which is a button. 
+                        When we press 1 button of the two buttons the LED should light up.
+                        <br />
+                        <br />
+                        Below you can find the code that was used to achieve this. 
+                        We first define the inputs which is the two buttons. Every button has a state, when pressed the state changes. 
+                        With that in mind we can check if one button is pressed, if so light up the LED.
+                    </p>
+<section class="topic-code">
+    <pre class="prettyprint">
+        <code class="language-c">
+    int ledPin = 13;
+    int buttonPinL = 3;
+    int buttonPinR = 2;
+    int bPinLState = 1;
+    int bPinRState = 1;
+    
+    void setup() {
+        pinMode(ledPin, OUTPUT);
+        pinMode(buttonPinL, INPUT);
+        pinMode(buttonPinR, INPUT);
+    }
+    
+    void loop() {
+        bPinLState = digitalRead(buttonPinL);
+        bPinRState = digitalRead(buttonPinR);
+        if((bPinLState == HIGH && bPinRState == LOW) || 
+           (bPinRState == HIGH && bPinLState == LOW)) {
+            digitalWrite(ledPin, HIGH);
+        } else {
+            digitalWrite(ledPin, LOW);
+        }
+    }            
+        </code>
+    </pre>
+</section>
+                </section>
+            </section>
+        </section>
+        <section class="intro 11b">
+            <section class="logo-holder">
+                <figure class="logo">
+                    <video class="topic-video" autoplay loop controls muted>
+                        <source src="../vid/workshop/arduino/11b.mp4" type="video/mp4">
+                    </video>
+                </figure>
+            </section>
+            <section class="name">
+                <section>
+                    <h1 class="info-heading">11B Servomotor</h1>
+                    <p class="personal-intro topic">
+                        The exercise here is to experiment with a new output device which is the servomotor. servomotors are motors that turn to a precise position like a steering wheel. 
+                        We want them to use in a interesting way.
+                        <br />
+                        <br />
+                        Below you can find the code that was used to achieve this. 
+                        We first define the ouput device which is the servomotor. 
+                        It uses a position to pin point the rotation position in the servomotor. 
+                        With a loop we are changing that position each time. 
+                        When the max rotation is reach we reset it back to the beginning. So is the rythm created.
+                    </p>
+<section class="topic-code">
+    <pre class="prettyprint">
+        <code class="language-c">
+            #include <span class="nocode"><</span>Servo.h></span>
+            Servo myServo; 
+            int servoPin = 9; 
+            int pos = 0;
+            void setup() {
+                 myServo.attach(servoPin);
+            }
+
+            void loop() {
+                for(pos = 0; pos <span class="nocode"><</span> 160; pos += 30) {
+                    myServo.write(pos);
+                    delay(1000);
+                }
+                myServo.write(0);
+            }    
+        </code>
+    </pre>
+</section>
+                </section>
+            </section>
+        </section>
+        <section class="intro 12b">
+            <section class="logo-holder">
+                <figure class="logo">
+                    <video class="topic-video object-right" autoplay loop controls muted>
+                        <source src="../vid/workshop/arduino/12b.mp4" type="video/mp4">
+                    </video>
+                </figure>
+            </section>
+            <section class="name">
+                <section>
+                    <h1 class="info-heading">12B Servomotor + Button</h1>
+                    <p class="personal-intro topic">
+                        The exercise here is to use to buttons to control the rotation of the servomotor. 
+                        One button to rotate right and one button to rotate left.
+                        <br />
+                        <br />
+                        Below you can find the code that was used to achieve this. 
+                        It's actually very easy to do. When pressing a button we increase or decrease the position of the rotation.
+                        We also have to check rotation to make sure it doesn't go below the minimal position or higher than the max.
+                    </p>
+<section class="topic-code">
+    <pre class="prettyprint">
+        <code class="language-c">
+        #include <span class="nocode"><</span>Servo.h></span>
+        Servo myServo;
+        int pos = 0; 
+        int buttonPinL = 3;
+        int buttonPinR = 2;
+
+        void setup() {
+            myServo.attach(9);
+            pinMode(buttonPinL, INPUT);
+            pinMode(buttonPinR, INPUT);
+        }
+
+        void loop() {
+            if(digitalRead(buttonPinL)) {
+                pos++;
+                if(pos <span class="nocode"><</span> 160) { myServo.write(pos); }
+            }
+        
+            if(digitalRead(buttonPinR)) {
+                pos--;
+                if(pos > 0) { myServo.write(pos); }
+            }
+        }                  
+        </code>
+    </pre>
+</section>
+                </section>
+            </section>
+        </section>
+        <section class="intro 13b">
+            <section class="logo-holder">
+                <figure class="logo">
+                    <video class="topic-video object-right" autoplay loop controls muted>
+                        <source src="../vid/workshop/arduino/13b.mp4" type="video/mp4">
+                    </video>
+                </figure>
+            </section>
+            <section class="name">
+                <section>
+                    <h1 class="info-heading">13B Sound</h1>
+                    <p class="personal-intro topic">
+                        The exercise here is to use a speaker to play a melody. 
+                        We can make our own melody for this excerise. I chose to play mario theme song.
+                        <br />
+                        <br />
+                        Below you can find the code that was used to achieve this. Each melody has it's own frequency. If you know the sequence than you can make your own melody.
+                        I search for the melody of mario theme song and copy it in my code. Unmute the video to hear the melody.
+                    </p>
+<section class="topic-code">
+    <pre class="prettyprint">
+        <code class="language-c">
+    int speakerPin = 8;
+
+    void setup() {
+        pinMode(speakerPin, OUTPUT);
+    }
+    
+    void loop() {
+        tone(speakerPin, 660, 100); 
+        delay(150);
+        tone(speakerPin, 660, 100); 
+        delay(300);
+        tone(speakerPin, 660, 100); 
+        delay(300);
+        tone(speakerPin, 510, 100);
+        delay(100);
+        tone(speakerPin, 660, 100);
+        delay(300);
+        tone(speakerPin, 770, 100);
+        delay(550);
+        tone(speakerPin, 380, 100);
+        delay(575);
+    }          
+        </code>
+    </pre>
+</section>
+                </section>
+            </section>
         </section>
     </main>
 </body>
