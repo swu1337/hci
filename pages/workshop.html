@@ -562,7 +562,7 @@
                         <br />
                         <br />
                         The second part is to make an VR environment in Unreal Engine. 
-                        Unreal Engine is a engine design to make 3d models and environment. 
+                        Unreal Engine is an engine design to make 3d models and environment especially for games. 
                         Our assignment for this part was to create a banana catching game where you can move around.
                     </p>
                 </section>
@@ -638,6 +638,122 @@
                     </figure>
                 </section>
         </section>
+        <section class="intro">
+            <section class="logo-holder">
+                <figure class="logo">
+                    <img src="../img/ue-logo.png" alt="logo of unreal engine">
+                </figure>
+            </section>
+            <section class="name">
+                <section>
+                    <h1 class="info-heading">Unreal Engine Process</h1>
+                    <p class="personal-intro topic solo-paragraph">
+                        Unreal engine is an engine where you can build environment and games. 
+                        Unreal engine is developed by Epic Games. 
+                        There is a lot of games made with Unreal Engine. Fortnite a popular game that is build with Unreal Engine.
+                        Our assignment was to follow the given tutorials and make a banana catching game which has it own environment.
+                        The goal is to get an idea how the software works and how we can implement for our own use.
+                        <br />
+                        <br />
+                        In progress xD
+                    </p>
+                </section>
+            </section>
+        </section>
+        <section id="cv" class="intro">
+            <section class="name">
+                <section>
+                    <h2>Computer Vision</h2>
+                    <h1>Assignment</h1>
+                    <p class="personal-intro">
+                        This assignment is also divided into 2 parts.
+                        In the first assignment we are going to learn how to use Processing. 
+                        Processing is an open source programming language and environment for people who want to build interactive systems.
+                        It's also the perfect tool for learning the fundamentals of programming.
+                        <br />
+                        <br />
+                        The second assignment is about Computer Vision. Computer vision is a field of computer science that works on enabling computers to see,
+                        identify and process images in the same way that human vision does, and then provide
+                        appropriate output. We can combine this with Processing. An example is using camera.
+                    </p>
+                </section>
+            </section>
+            <section class="logo-holder">
+                <figure class="logo">
+                    <img src="../img/cv-intro.jpg" alt="pupil blue">
+                </figure>
+            </section>
+        </section>
+        <section class="intro">
+                <section class="logo-holder">
+                    <figure class="logo">
+                        <img src="../img/vre/text.jpg" alt="our friend geert with text on his shirt">
+                    </figure>
+                </section>
+                <section class="name">
+                    <section>
+                        <h1 class="info-heading">Processing Assignments</h1>
+                        <p class="personal-intro topic solo-paragraph">
+                            The assignment is to follow the given tutorial. 
+                            Some of the exercises were there to explain how the code works. 
+                            You can use the function draw() to draw something on a canvas. 
+                            Processing is easy to understand. They have build in function to draw rectangle, circle, triangle and much more. 
+                            You can change the color of each individual object. Animate object to move to certain point on the canvas or reject to the mouse.
+                        </p>
+                    </section>
+                </section>
+        </section>
+        <section class="intro 10f">
+                <section class="logo-holder">
+                    <figure class="logo">
+                        <video class="topic-video" autoplay loop controls muted>
+                            <source src="../vid/workshop/arduino/10f.mp4" type="video/mp4">
+                        </video>
+                    </figure>
+                </section>
+                <section class="name">
+                    <section>
+                        <h1 class="info-heading">10F Buttons and LEDs</h1>
+                        <p class="personal-intro topic">
+                            The exercise here is to play with a new input device which is a button. 
+                            When we press 1 button of the two buttons the LED should light up.
+                            <br />
+                            <br />
+                            Below you can find the code that was used to achieve this. 
+                            We first define the inputs which is the two buttons. Every button has a state, when pressed the state changes. 
+                            With that in mind we can check if one button is pressed, if so light up the LED.
+                        </p>
+    <section class="topic-code">
+        <pre class="prettyprint">
+            <code class="language-c">
+        int ledPin = 13;
+        int buttonPinL = 3;
+        int buttonPinR = 2;
+        int bPinLState = 1;
+        int bPinRState = 1;
+        
+        void setup() {
+            pinMode(ledPin, OUTPUT);
+            pinMode(buttonPinL, INPUT);
+            pinMode(buttonPinR, INPUT);
+        }
+        
+        void loop() {
+            bPinLState = digitalRead(buttonPinL);
+            bPinRState = digitalRead(buttonPinR);
+            if((bPinLState == HIGH && bPinRState == LOW) || 
+               (bPinRState == HIGH && bPinLState == LOW)) {
+                digitalWrite(ledPin, HIGH);
+            } else {
+                digitalWrite(ledPin, LOW);
+            }
+        }            
+            </code>
+        </pre>
+    </section>
+                    </section>
+                </section>
+            </section>
     </main>
 </body>
 </html>
