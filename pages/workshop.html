@@ -304,7 +304,7 @@
                 </section>
                 <section class="name">
                     <section>
-                        <h1 class="info-heading">9B Processing + Arduino</h1>
+                        <h1 class="info-heading">9B: Processing + Arduino</h1>
                         <p class="personal-intro topic">
                             The exercise here is to link up applications with eachother. Processing is a application that allows you to draw shapes just like on a canvas.
                             <br />
@@ -358,7 +358,7 @@
             </section>
             <section class="name">
                 <section>
-                    <h1 class="info-heading">10F Buttons and LEDs</h1>
+                    <h1 class="info-heading">10F: Buttons and LEDs</h1>
                     <p class="personal-intro topic">
                         The exercise here is to play with a new input device which is a button. 
                         When we press 1 button of the two buttons the LED should light up.
@@ -409,7 +409,7 @@
             </section>
             <section class="name">
                 <section>
-                    <h1 class="info-heading">11B Servomotor</h1>
+                    <h1 class="info-heading">11B: Servomotor</h1>
                     <p class="personal-intro topic">
                         The exercise here is to experiment with a new output device which is the servomotor. servomotors are motors that turn to a precise position like a steering wheel. 
                         We want them to use in a interesting way.
@@ -455,7 +455,7 @@
             </section>
             <section class="name">
                 <section>
-                    <h1 class="info-heading">12B Servomotor + Button</h1>
+                    <h1 class="info-heading">12B: Servomotor + Button</h1>
                     <p class="personal-intro topic">
                         The exercise here is to use to buttons to control the rotation of the servomotor. 
                         One button to rotate right and one button to rotate left.
@@ -507,7 +507,7 @@
             </section>
             <section class="name">
                 <section>
-                    <h1 class="info-heading">13B Sound</h1>
+                    <h1 class="info-heading">13B: Sound</h1>
                     <p class="personal-intro topic">
                         The exercise here is to use a speaker to play a melody. 
                         We can make our own melody for this excerise. I chose to play mario theme song.
@@ -687,73 +687,441 @@
         <section class="intro">
                 <section class="logo-holder">
                     <figure class="logo">
-                        <img src="../img/vre/text.jpg" alt="our friend geert with text on his shirt">
+                        <img src="../img/processing.jpg" alt="logo of processing">
                     </figure>
                 </section>
                 <section class="name">
                     <section>
-                        <h1 class="info-heading">Processing Assignments</h1>
+                        <h1 class="info-heading">Part 1: Processing</h1>
                         <p class="personal-intro topic solo-paragraph">
-                            The assignment is to follow the given tutorial. 
-                            Some of the exercises were there to explain how the code works. 
-                            You can use the function draw() to draw something on a canvas. 
-                            Processing is easy to understand. They have build in function to draw rectangle, circle, triangle and much more. 
-                            You can change the color of each individual object. Animate object to move to certain point on the canvas or reject to the mouse.
+                            The assignment was to follow the a given tutorial. 
+                            Some of the exercises were there to explain and show how the code works. 
+                            In a simply way you can use the function draw() to draw something on a canvas. 
+                            Processing is pretty easy to understand. They have build in functions to draw like rectangle, circle, triangle and much more. 
+                            You can change the color of each individual object, animate object to move to certain point on the canvas or let it react to the mouse. 
+                            It is also possible to connect Arduino to processing. For example getting data from a input device that is connected to the arduino board.
                         </p>
                     </section>
                 </section>
         </section>
-        <section class="intro 10f">
+        <section class="intro 1">
                 <section class="logo-holder">
-                    <figure class="logo">
-                        <video class="topic-video" autoplay loop controls muted>
-                            <source src="../vid/workshop/arduino/10f.mp4" type="video/mp4">
-                        </video>
+                    <figure class="topic-figure">
+                        <img src="../img/cv/as1.PNG" alt="given image of the assignment">
+                    </figure>
+                    <figure class="topic-figure">
+                        <img src="../img/cv/as12.PNG" alt="result of the assignment">
                     </figure>
                 </section>
                 <section class="name">
                     <section>
-                        <h1 class="info-heading">10F Buttons and LEDs</h1>
-                        <p class="personal-intro topic">
-                            The exercise here is to play with a new input device which is a button. 
-                            When we press 1 button of the two buttons the LED should light up.
+                        <h1 class="info-heading">1: Ellipses</h1>
+                        <p class="personal-intro topic solo-paragraph">
+                            The exercise here is to play with ellipses. Our assignment was to copy a given image on the top left. 
+                            Its basically 3 ellipses with different shapes, colors and location.
                             <br />
                             <br />
                             Below you can find the code that was used to achieve this. 
-                            We first define the inputs which is the two buttons. Every button has a state, when pressed the state changes. 
-                            With that in mind we can check if one button is pressed, if so light up the LED.
+                            Basically we used the ellipse() function to create different shapes of ellipse. 
+                            In the parameter, you can give the x- and y-location of they location and then the width and height. 
+                            You have to use fill() to fill the ellipse. The hardest part is to find the right locations for the ellipses.
+                            My result is on the bottom left, too me their almost the same its the idea that counts.
                         </p>
     <section class="topic-code">
         <pre class="prettyprint">
-            <code class="language-c">
-        int ledPin = 13;
-        int buttonPinL = 3;
-        int buttonPinR = 2;
-        int bPinLState = 1;
-        int bPinRState = 1;
-        
+            <code class="language-java">
         void setup() {
-            pinMode(ledPin, OUTPUT);
-            pinMode(buttonPinL, INPUT);
-            pinMode(buttonPinR, INPUT);
+            size(300,200);
+            fill(178, 255, 102);
+            ellipse(70, 80, 100, 80);
+            fill(51, 0, 102);
+            ellipse(120, 70, 50, 120);
+            fill(153, 255, 225);
+            ellipse(100, 30, 90, 20);
         }
-        
-        void loop() {
-            bPinLState = digitalRead(buttonPinL);
-            bPinRState = digitalRead(buttonPinR);
-            if((bPinLState == HIGH && bPinRState == LOW) || 
-               (bPinRState == HIGH && bPinLState == LOW)) {
-                digitalWrite(ledPin, HIGH);
-            } else {
-                digitalWrite(ledPin, LOW);
-            }
-        }            
+
+        void draw() {
+            println("Hello World!");
+        }                   
             </code>
         </pre>
     </section>
                     </section>
                 </section>
+        </section>
+        <section class="intro 2">
+            <section class="logo-holder">
+                <figure class="logo">
+                    <img src="../img/cv/as2.PNG" alt="window of processing assignment 2">
+                </figure>
             </section>
+            <section class="name">
+                <section>
+                    <h1 class="info-heading">2: Different Shapes</h1>
+                    <p class="personal-intro topic solo-paragraph">
+                        The exercise here is to play with other shapes than ellipses. Our assignment was to draw 4 different shapes. 
+                        <br />
+                        <br />
+                        Below you can find the code that was used to achieve this. 
+                        Processing has built in shapes like line(), triangle(), quad(), rect() and that's why it's easy to program in processing.
+                        I experimented with these functions to create different shapes. It's 
+                        basically give the functions the necessary arguments.
+                    </p>
+<section class="topic-code">
+    <pre class="prettyprint">
+        <code class="language-java">
+    void setup() {
+        size(400, 400);
+        fill(178, 255, 102);
+        line(20, 30, 100, 30);
+        fill(51, 0, 102);
+        triangle(120, 50, 180, 120, 20, 120);
+        fill(153, 255, 225);
+        quad(40, 130, 120, 140, 120, 180, 30, 200);
+        fill(153, 205, 225);
+        rect(250, 40, 100, 100);
+    }
+        
+    void draw() {
+        println("Hello World!");
+    }                         
+        </code>
+    </pre>
+</section>
+                </section>
+            </section>
+        </section>
+        <section class="intro 3">
+            <section class="logo-holder">
+                <figure class="logo">
+                    <video class="topic-video" autoplay loop controls muted>
+                        <source src="../vid/workshop/cv/cv-processing3.mp4" type="video/mp4">
+                    </video>
+                </figure>
+            </section>
+            <section class="name">
+                <section>
+                    <h1 class="info-heading">3: Mouse interaction</h1>
+                    <p class="personal-intro topic solo-paragraph">
+                        The exercise here is to play with mouse interaction.
+                        Here we can let a shape interact with the mouse.
+                        <br />
+                        <br />
+                        Below you can find the code that was used to achieve this.
+                        First we get the x and y from the mouse location and diameter and set it as color value.
+                        Secondly we increase the diameter every time the draw() function is called and use the mouse x and y as the location for the ellipse. 
+                        We don't want to diameter to be bigger than the screen so we reset when it's over 100
+                    </p>
+<section class="topic-code">
+    <pre class="prettyprint">
+        <code class="language-java">
+    int diameter = 10;
+
+    void setup() {
+        size(255, 255);
+        background (200, 200, 200);
+        frameRate(15);
+    }
+
+    void draw() {
+        fill(mouseX, mouseY, diameter);
+        ellipse(mouseX, mouseY, diameter, diameter);
+        diameter++;
+        if (diameter > 100) {
+            diameter = 10;
+        }
+    }                
+        </code>
+    </pre>
+</section>
+                </section>
+            </section>
+        </section>
+        <section class="intro">
+                <section class="logo-holder">
+                    <figure class="logo">
+                        <img src="../img/cv-intro2.jpg" alt="computer vision example">
+                    </figure>
+                </section>
+                <section class="name">
+                    <section>
+                        <h1 class="info-heading">Part 2: Computer Vision</h1>
+                        <p class="personal-intro topic solo-paragraph">
+                            The assignment was to follow the a given tutorial. For this assignment we had to download a couple libraries for processing. 
+                            Libraries are extentions that allows you as a developer to do extra things that is beyond the basic of the program itself.
+                            We had to download a library that allows us to use to use video and camera. For tracking our face we had to download OpenCV library. Other libraries were to track to brightness source in the room and to track to multiple colors.
+                            Each of these library has code examples so it was easy to use to follow.
+                        </p>
+                    </section>
+                </section>
+        </section>
+        <section class="intro cv1">
+            <section class="logo-holder">
+                <figure class="logo">
+                    <video class="topic-video" autoplay loop controls muted>
+                        <source src="../vid/workshop/cv/cv-cv1.mp4" type="video/mp4">
+                    </video>
+                </figure>
+            </section>
+                <section class="name">
+                    <section>
+                        <h1 class="info-heading">1: Facial Recognition</h1>
+                        <p class="personal-intro topic solo-paragraph">
+                            The exercise here is to experiment with facial recognition.
+                            The library OpenCV en Video were used to able to get a circle around someone's face. Our assignment to change the rectangle around the face to an ellipse.
+                            <br />
+                            <br />
+                            Below you can find the code that was used to achieve this.
+                            Most of the code were from a example.
+                            We looked for a the rect() function since in the previous assignment we learned that rect() is used to create a rectangle.
+                            After that we change it to ellipse().
+                        </p>
+    <section class="topic-code">
+        <pre class="prettyprint">
+            <code class="language-java">
+        import gab.opencv.*;
+        import processing.video.*;
+        import java.awt.*;
+        
+        Capture video;
+        OpenCV opencv;
+        
+        void setup() {
+            size(640, 480);
+            video = new Capture(this, 640/2, 480/2);
+            opencv = new OpenCV(this, 640/2, 480/2);
+            opencv.loadCascade(OpenCV.CASCADE_FRONTALFACE);  
+            video.start();
+        }
+        
+        void draw() {
+            scale(2);
+            opencv.loadImage(video);
+        
+            image(video, 0, 0 );
+        
+            noFill();
+            stroke(0, 255, 0);
+            strokeWeight(3);
+            Rectangle[] faces = opencv.detect();
+            println(faces.length);
+        
+            for (int i = 0; i < faces.length; i++) {
+                println(faces[i].x + "," + faces[i].y);
+                ellipseMode(CORNER);
+                ellipse(faces[i].x, 
+                        faces[i].y,
+                        faces[i].width,
+                        faces[i].height);
+            }
+        }
+        
+        void captureEvent(Capture c) {
+            c.read();
+        }                                   
+            </code>
+        </pre>
+    </section>
+                    </section>
+                </section>
+        </section>
+        <section class="intro cv2">
+                <section class="logo-holder">
+                    <figure class="logo">
+                        <video class="topic-video" autoplay loop controls muted>
+                            <source src="../vid/workshop/cv/cv-cv2.mp4" type="video/mp4">
+                        </video>
+                    </figure>
+                </section>
+                    <section class="name">
+                        <section>
+                            <h1 class="info-heading">2: Anonymous</h1>
+                            <p class="personal-intro topic solo-paragraph">
+                                The exercise here is to experiment with facial recognition.
+                                The library OpenCV en Video were used to able to get a circle around someone's face. Our assignment to hide our eyes with a black rectangle making me anonymous.
+                                <br />
+                                <br />
+                                Below you can find the code that was used to achieve this.
+                                Most of the code were from a example.
+                                We added a extra line for the black rectangle and you guess it using the rect() function and move it down to match the eyes.
+                            </p>
+        <section class="topic-code">
+            <pre class="prettyprint">
+                <code class="language-java">
+            import gab.opencv.*;
+            import processing.video.*;
+            import java.awt.*;
+            
+            Capture video;
+            OpenCV opencv;
+            
+            void setup() {
+                size(640, 480);
+                video = new Capture(this, 640/2, 480/2);
+                opencv = new OpenCV(this, 640/2, 480/2);
+                opencv.loadCascade(OpenCV.CASCADE_FRONTALFACE);  
+            
+                video.start();
+            }
+            
+            void draw() {
+                scale(2);
+                opencv.loadImage(video);
+            
+                image(video, 0, 0 );
+            
+                noFill();
+                stroke(0, 255, 0);
+                strokeWeight(3);
+                Rectangle[] faces = opencv.detect();
+                println(faces.length);
+            
+                for (int i = 0; i < faces.length; i++) {
+                    println(faces[i].x + "," + faces[i].y);
+                    ellipseMode(CORNER);
+                    fill(0, 0, 0);
+                    noStroke();
+                    rect(faces[i].x,
+                         faces[i].y + 30,
+                         faces[i].width,
+                         35);
+                    stroke(0, 255, 0);
+                    strokeWeight(3);
+                    noFill();
+                    ellipse(faces[i].x,
+                            faces[i].y,
+                            faces[i].width,
+                            faces[i].height);
+                }
+            }
+            
+            void captureEvent(Capture c) {
+                c.read();
+            }                         
+                </code>
+            </pre>
+        </section>
+                        </section>
+                    </section>
+        </section>
+        <section class="intro cv3">
+                <section class="logo-holder">
+                    <figure class="logo">
+                        <video class="topic-video" autoplay loop controls muted>
+                            <source src="../vid/workshop/cv/cv-cv3.mp4" type="video/mp4">
+                        </video>
+                    </figure>
+                </section>
+                    <section class="name">
+                        <section>
+                            <h1 class="info-heading">3: Other Libraries</h1>
+                            <p class="personal-intro topic solo-paragraph">
+                                The exercise here is to experiment with other libraries.
+                                2 different libraries were given to us. Our assignment was to use one of these libraries to make something cool.
+                                I experimented with the brightness one. The library circles the brightest source.
+                                <br />
+                                <br />
+                                Below you can find the code that was used to achieve this.
+                                Most of the code was download with the library.
+                                What I changed was to color the whole background based on the brightest location. So the location x and y wil be used as red and green in rgb color value.
+                            </p>
+        <section class="topic-code">
+            <pre class="prettyprint">
+                <code class="language-java">
+        import gab.opencv.*;
+        import processing.video.*;
+        
+        OpenCV opencv;
+        Capture video;
+        
+        void setup() {
+            size(640, 480);
+            video = new Capture(this, 640, 480);
+            opencv = new OpenCV(this, 640, 480);
+        
+            video.start();
+        
+        }
+        
+        void draw() {
+            opencv.loadImage(video);
+        
+            image(video, 0, 0 );
+            
+            PVector loc = opencv.min();
+            
+            stroke(255, 0, 0);
+            strokeWeight(4);
+            background(loc.x, loc.y, 50);
+        }
+        
+        void captureEvent(Capture c) {
+            c.read();
+        }                         
+                </code>
+            </pre>
+        </section>
+                        </section>
+                    </section>
+        </section>
+        <section class="intro ar">
+                <section class="logo-holder">
+                    <figure class="logo">
+                        <img src="../img/ue-logo.png" alt="logo of unreal engine">
+                    </figure>
+                </section>
+                    <section class="name">
+                        <section>
+                            <h1 class="info-heading">AR1: Markers</h1>
+                            <p class="personal-intro topic solo-paragraph">
+                                The exercise here is to experiment with augmented reality in Processing.
+                                We had to download NyARToolkit library. This library allow us to recognize markers and augment these with other images.
+                                <br />
+                                <br />
+                                Below you can find the code that was used to achieve this.
+                                The code was the examples that were included in the library.
+                                You can find these at File > Examples.
+                                Basically this assignment to try different images out and see what the results were.
+                            </p>
+        <section class="topic-code">
+            <pre class="prettyprint">
+                <code class="language-java">
+        import gab.opencv.*;
+        import processing.video.*;
+        
+        OpenCV opencv;
+        Capture video;
+        
+        void setup() {
+            size(640, 480);
+            video = new Capture(this, 640, 480);
+            opencv = new OpenCV(this, 640, 480);
+        
+            video.start();
+        
+        }
+        
+        void draw() {
+            opencv.loadImage(video);
+        
+            image(video, 0, 0 );
+            
+            PVector loc = opencv.min();
+            
+            stroke(255, 0, 0);
+            strokeWeight(4);
+            background(loc.x, loc.y, 50);
+        }
+        
+        void captureEvent(Capture c) {
+            c.read();
+        }                         
+                </code>
+            </pre>
+        </section>
+                        </section>
+                    </section>
+        </section>
     </main>
 </body>
 </html>

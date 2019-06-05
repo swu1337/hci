@@ -9,7 +9,7 @@
 
 .logo-holder .topic-figure {
     width: 87%;
-    height: 43%;
+    height: 44%;
 }
 
 .logo-holder .topic-video {
@@ -21,6 +21,7 @@
 .logo-holder .topic-figure img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .logo-holder .logo, .logo-holder .solo-video {
