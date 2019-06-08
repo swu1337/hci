@@ -4,42 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/navigation.css">
     <script src="scripts/navigation.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script src="scripts/vendors/viewscroller/viewScroller.min.js"></script>
+    <link rel="stylesheet" href="scripts/vendors/viewscroller/viewScroller.min.css">
+    <script src="scripts/viewcontroller.js"></script>
     <title>HCI</title>
 </head>
 <body>
-    <main>
+    <nav>
+        <ul>
+            <section class="categories">
+                <li class="nav-list main"><a href="pages/topics.html" class="nav-link">Topics</a></li>
+                <li class="nav-list sub"><a href="pages/topics.html#wearables" class="nav-link">Wearables</a></li>
+                <li class="nav-list sub"><a href="pages/topics.html#pi" class="nav-link">Playful Interactions</a></li>
+                <li class="nav-list sub"><a href="pages/topics.html#ac" class="nav-link">Artificial Creatures</a></li>
+                <li class="nav-list sub"><a href="pages/topics.html#ar-vr" class="nav-link">AR&VR</a></li>
+                <li class="nav-list main"><a href="pages/workshop.html" class="nav-link">Workshop</a></li>
+                <li class="nav-list sub"><a href="pages/workshop.html#arduino" class="nav-link">Arduino</a></li>
+                <li class="nav-list sub"><a href="pages/workshop.html#vre" class="nav-link">VR Environments</a></li>
+                <li class="nav-list sub"><a href="pages/workshop.html#cv" class="nav-link">Computer Vision</a></li>
+            </section>
+            <section class="categories">
+                <li class="nav-list main home"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-list main"><a href="pages/excursion.html" class="nav-link">Excursion</a></li>
+                <li class="nav-list main"><a href="pages/lab-weeks.html" class="nav-link">Lab weeks</a></li>
+            </section>
+        </ul>
+    </nav>
+    <aside class="menu"><h1>HCI by Steven Wu</h1><span class="fas fa-bars"></span></aside>
+    <main>       
         <header>
             <section class="landing">
                 <video autoplay loop controls muted>
                     <source src="vid/videoplayback.mp4" type="video/mp4">
                 </video>
             </section>
-            <nav>
-                <ul>
-                    <section class="categories">
-                        <li class="nav-list main"><a href="pages/topics.html" class="nav-link">Topics</a></li>
-                        <li class="nav-list sub"><a href="pages/topics.html#wearables" class="nav-link">Wearables</a></li>
-                        <li class="nav-list sub"><a href="pages/topics.html#pi" class="nav-link">Playful Interactions</a></li>
-                        <li class="nav-list sub"><a href="pages/topics.html#ac" class="nav-link">Artificial Creatures</a></li>
-                        <li class="nav-list sub"><a href="pages/topics.html#ar-vr" class="nav-link">AR&VR</a></li>
-                        <li class="nav-list main"><a href="pages/workshop.html" class="nav-link">Workshop</a></li>
-                        <li class="nav-list sub"><a href="pages/workshop.html#arduino" class="nav-link">Arduino</a></li>
-                        <li class="nav-list sub"><a href="pages/workshop.html#vre" class="nav-link">VR Environments</a></li>
-                        <li class="nav-list sub"><a href="pages/workshop.html#cv" class="nav-link">Computer Vision</a></li>
-                    </section>
-                    <section class="categories">
-                        <li class="nav-list main home"><a href="#" class="nav-link">Home</a></li>
-                        <li class="nav-list main"><a href="pages/excursion.html" class="nav-link">Excursion</a></li>
-                        <li class="nav-list main"><a href="pages/lab-weeks.html" class="nav-link">Lab weeks</a></li>
-                    </section>
-                </ul>
-            </nav>
-            <aside class="menu"><h1>HCI by Steven Wu</h1><span class="fas fa-bars"></span></aside>
+
         </header>
         <section class="intro">
             <section class="name">

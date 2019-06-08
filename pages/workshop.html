@@ -11,12 +11,39 @@
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
     <script src="../scripts/navigation.js"></script>
     <link rel="stylesheet" href="../styles/lay-out-info.css">
-    <link rel="stylesheet" href="../styles/pages/workshop.css">  
+    <link rel="stylesheet" href="../styles/pages/workshop.css">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script src="../scripts/vendors/viewscroller/viewScroller.min.js"></script>
+    <link rel="stylesheet" href="../scripts/vendors/viewscroller/viewScroller.min.css">
+    <script src="../scripts/viewcontroller.js"></script>
     <title>HCI - Workshop</title>
 </head>
 <body>
+    <nav>
+        <ul>
+            <section class="categories">
+                <li class="nav-list main"><a href="topics.html" class="nav-link">Topics</a></li>
+                <li class="nav-list sub"><a href="topics.html#wearables" class="nav-link">Wearables</a></li>
+                <li class="nav-list sub"><a href="topics.html#pi" class="nav-link">Playful Interactions</a></li>
+                <li class="nav-list sub"><a href="topics.html#ac" class="nav-link">Artificial Creatures</a></li>
+                <li class="nav-list sub"><a href="topics.html#ar-vr" class="nav-link">AR&VR</a></li>
+                <li class="nav-list main home"><a href="#top" class="nav-link">Workshop</a></li>
+                <li class="nav-list sub"><a href="#arduino" class="nav-link">Arduino</a></li>
+                <li class="nav-list sub"><a href="#vre" class="nav-link">VR Environments</a></li>
+                <li class="nav-list sub"><a href="#cv" class="nav-link">Computer Vision</a></li>
+            </section>
+            <section class="categories">
+                <li class="nav-list main"><a href="../index.html" class="nav-link">Home</a></li>
+                <li class="nav-list main"><a href="excursion.html" class="nav-link">Excursion</a></li>
+                <li class="nav-list main"><a href="lab-weeks.html" class="nav-link">Lab weeks</a></li>
+            </section>
+        </ul>
+    </nav>
+    <aside class="menu"><h1>HCI by Steven Wu</h1><span class="fas fa-bars"></span></aside>
     <main>
-        <header>
+        <header vs-anchor="top">
             <section class="landing">
                 <section class="intro">
                         <section class="name">
@@ -42,29 +69,9 @@
                         </section>
                     </section>
             </section>
-            <nav>
-                <ul>
-                    <section class="categories">
-                        <li class="nav-list main"><a href="topics.html" class="nav-link">Topics</a></li>
-                        <li class="nav-list sub"><a href="topics.html#wearables" class="nav-link">Wearables</a></li>
-                        <li class="nav-list sub"><a href="topics.html#pi" class="nav-link">Playful Interactions</a></li>
-                        <li class="nav-list sub"><a href="topics.html#ac" class="nav-link">Artificial Creatures</a></li>
-                        <li class="nav-list sub"><a href="topics.html#ar-vr" class="nav-link">AR&VR</a></li>
-                        <li class="nav-list main home"><a href="workshop.html" class="nav-link">Workshop</a></li>
-                        <li class="nav-list sub"><a href="#arduino" class="nav-link">Arduino</a></li>
-                        <li class="nav-list sub"><a href="#vre" class="nav-link">VR Environments</a></li>
-                        <li class="nav-list sub"><a href="#cv" class="nav-link">Computer Vision</a></li>
-                    </section>
-                    <section class="categories">
-                        <li class="nav-list main"><a href="../index.html" class="nav-link">Home</a></li>
-                        <li class="nav-list main"><a href="excursion.html" class="nav-link">Excursion</a></li>
-                        <li class="nav-list main"><a href="lab-weeks.html" class="nav-link">Lab weeks</a></li>
-                    </section>
-                </ul>
-            </nav>
-            <aside class="menu"><h1>HCI by Steven Wu</h1><span class="fas fa-bars"></span></aside>
+
         </header>
-        <section id="arduino" class="intro">
+        <section vs-anchor="arduino" class="intro">
             <section class="name">
                 <section>
                     <h2>Arduino</h2>
@@ -160,7 +167,9 @@
         }
 
         void loop() { 
-            for (int brightness=0; brightness <span class="nocode"><</span> 256; brightness++) {
+            for (int brightness=0;
+                 brightness <span class="nocode"><</span> 256;
+                 brightness++) {
                 analogWrite(redLedPin, brightness);
                 analogWrite(yellowLedPin, 255 -brightness);
                 delay(10);
@@ -547,7 +556,7 @@
                 </section>
             </section>
         </section>
-        <section id="vre" class="intro">
+        <section vs-anchor="vre" class="intro">
             <section class="name">
                 <section>
                     <h2>VR Environments</h2>
@@ -581,7 +590,7 @@
             </section>
             <section class="name">
                 <section>
-                    <h1 class="info-heading">Spatial Augmented Reality Process</h1>
+                    <h1 class="info-heading">SAR Process</h1>
                     <p class="personal-intro topic solo-paragraph">
                         Spatial Augmented Reality is a way to project different sources such as pictures and videos on different objects.
                         We followed the tutorial that was given for the installions. That was basically to download MadMapper and setup the projector.
@@ -598,8 +607,6 @@
                         We mapped out each side on the pyramide and project different video's. 
                         We also tried to other input like facecam. 
                         We got the facecam working and project the livecam on a mannequin head which was very creepy.
-                        <br />
-                        <br />
                         Pictures and video's are on the following page.
                     </p>
                 </section>
@@ -660,7 +667,7 @@
                 </section>
             </section>
         </section>
-        <section id="cv" class="intro">
+        <section vs-anchor="cv" class="intro">
             <section class="name">
                 <section>
                     <h2>Computer Vision</h2>

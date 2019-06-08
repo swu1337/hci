@@ -43,7 +43,7 @@
 
 .topic-code {
     margin: 0 50px;
-    max-height: 330px;
+    max-height: 234px;
     overflow-y: auto;
     border: 1px solid #888;
 }
