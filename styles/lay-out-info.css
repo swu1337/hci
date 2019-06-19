@@ -73,7 +73,7 @@ h1.multiple-heading {
     font-size: 1.7em;
 }
 
-h1.info-heading {
+h1.info-heading, h2.info-heading{
     padding: 0 50px;
 }
 
@@ -101,4 +101,8 @@ h1.top-image-title {
     padding: 0;
     padding-bottom: 20px;
     text-align: left;
+}
+
+img.rotate-180 {
+    transform: rotate(180deg);
 }

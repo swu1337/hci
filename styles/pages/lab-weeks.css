@@ -32,6 +32,7 @@ nav {
 }
 
 .section-anchors .anchor {
+    display: block;
     letter-spacing: 2px;
     font-size: 16px;
     text-align: center;
@@ -43,8 +44,37 @@ nav {
     cursor: pointer;
     font-weight: bold;
     margin-bottom: 30px;
+    text-decoration: none;
 }
 
 .section-anchors .anchor:hover {
     background-color: rgb(255, 113, 113);
+}
+
+a.top {
+    z-index: 1;
+    position: fixed;
+    display: block;
+    padding: 15px;
+    background-color: rgb(255, 123, 123);
+    bottom: 3%;
+    right: 3%;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.credit {
+    color: black; 
+    font-size: 10px;
+    text-transform: uppercase;
+    margin-top: 3px;
+    letter-spacing: 2px;
+    font-weight: bold;
 }
