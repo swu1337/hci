@@ -13,3 +13,38 @@ aside.menu {
 nav {
     background-color: rgb(255, 82, 82);
 }
+
+.section-anchors {
+    width:90%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.section-anchor-holder {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.section-anchors .anchor {
+    letter-spacing: 2px;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    width: 18%;
+    background-color: rgb(255, 82, 82);
+    padding: 23px 0;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.section-anchors .anchor:hover {
+    background-color: rgb(255, 113, 113);
+}
