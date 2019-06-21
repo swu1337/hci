@@ -19,6 +19,10 @@
     height: 100%;
 }
 
+.logo-holder .row-double-figure .topic-figure img {
+    height: 93%;
+}
+
 .logo-holder .topic-video, .logo-holder .topic-figure img, .logo-holder .logo img {
     width: 100%;
     height: 100%;
